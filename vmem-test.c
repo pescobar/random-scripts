@@ -41,5 +41,6 @@ int main(int argc, char **argv) {
     }
 
     scanf("%c", &input);
+    sleep(300);
     return 0;
 }
