@@ -6,7 +6,8 @@
 //
 // First argument is the number of gigabytes to allocate of virtual memory
 // By default just virtual mem is allocated and resident memory stays under 1M
-// If a second argument is provided the resident memory is also allocated
+// If a second argument is provided the reserved resident memory is also filled up 
+// with resident memory
 //
 // Examples:
 // ./mem 4      >>  allocates 4G of vmem. Resident mem stays under 1M
