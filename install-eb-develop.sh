@@ -9,7 +9,7 @@ then
     exit 1
 fi
 
-INSTALL_DIR=$1
+INSTALL_DIR=`readlink -f $1`
 LOGFILE=$INSTALL_DIR/install.log
 
 echo -e "starting installation. Logging to ${LOGFILE}\n"
