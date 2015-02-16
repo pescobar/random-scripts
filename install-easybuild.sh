@@ -41,8 +41,9 @@ fi
 
 for repo in framework easyconfigs easyblocks;
 do
-    echo "downloading http://github.com/hpcugent/easybuild-${repo}/archive/${BRANCH}.tar.gz"
-    wget http://github.com/hpcugent/easybuild-${repo}/archive/${BRANCH}.tar.gz -O /tmp/eb-${repo}-${BRANCH}_${DATE}.tar.gz >> $LOGFILE 2>&1
+    REPOURL="http://github.com/hpcugent/easybuild-${repo}/archive/${BRANCH}.tar.gz"
+    echo "downloading ${REPOURL}"
+    wget ${REPOURL} -O /tmp/eb-${repo}-${BRANCH}_${DATE}.tar.gz >> $LOGFILE 2>&1
     
     echo -e "uncompressing ${repo}\n"
     tar xf /tmp/eb-${repo}-${BRANCH}_${DATE}.tar.gz -C $INSTALL_DIR --strip-components=1
