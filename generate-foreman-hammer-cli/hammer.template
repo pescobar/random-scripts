@@ -1,0 +1,7 @@
+#Host:  $hostname 
+hammer host create \
+--managed=true --build=true \
+--architecture=x86_64 --domain=domain.com --hostgroup=group1 --subnet=ethernet-production \
+--ptable='sda-root-grow-sdb-scratch-grow format all disks' \
+--ip=30.31.10.17 --mac="$eth0mac" --name=$hostname \
+--interface="type=Nic::BMC,name=$hostnamea,ip=30.31.128.17,mac=$ipmimac,domain_id=1,subnet_id=2,provider=IPMI,username=ipmiuser,password=ipmipass"
