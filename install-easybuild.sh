@@ -49,13 +49,18 @@ do
     tar xf /tmp/eb-${repo}-${BRANCH}_${DATE}.tar.gz -C $INSTALL_DIR --strip-components=1
 done
 
+# vsc-base
+wget https://pypi.python.org/packages/source/v/vsc-base/vsc-base-2.0.4.tar.gz -O /tmp/vsc-base-2.0.4.tar.gz
+tar xf /tmp/vsc-base-2.0.4.tar.gz -C $INSTALL_DIR --strip-components=1
+
 rm -fr /tmp/eb-{framework,easyconfigs,easyblocks}-${BRANCH}_${DATE}.tar.gz
 
 cat > $INSTALL_DIR/setup-env.sh << EOF
-export PYTHONPATH=${INSTALL_DIR}:\$PYTHONPATH
+export PYTHONPATH=${INSTALL_DIR}:${INSTALL_DIR}/lib:\$PYTHONPATH
 export PATH=${INSTALL_DIR}:\$PATH
 EOF
 
 echo -e "Installation complete. To start using it do \"source $INSTALL_DIR/setup-env.sh\"\n"
 
 touch $INSTALL_DIR/INSTALLED_${DATE}
+
