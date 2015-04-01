@@ -79,6 +79,6 @@ for ext in exts_list:
         except urllib2.HTTPError, e:
             pass
         else:
-            cmd = "lynx -dump r_experiment_url |grep Version | awk {'print $2'}" % (r_experiment_url)
+            cmd = "lynx -dump %s |grep Version | awk {'print $2'}" % (r_experiment_url)
             latest_version = commands.getoutput(cmd)
             print "('%s', '%s', bioconductor_options)," % (ext_name, latest_version)  
